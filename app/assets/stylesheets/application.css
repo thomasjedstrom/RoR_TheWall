@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ *{
+ 	font-family: sans-serif;
+ }
+
+.navbar{
+	position: fixed;
+	width: 100%;
+	padding: 0px;
+}
+.navbarstuff{
+	width: 1000px;
+	margin: auto;
+	margin-top: 0px;
+	background: gray;	
+	height: 2.5em;
+}
+.navbarstuff>h1{
+	margin: 0px;
+	margin-left: 30px;
+}
+.container{
+	max-width: 1000px;
+	margin: auto;
+	background-image: url("https://upload.wikimedia.org/wikipedia/en/1/13/PinkFloydWallCoverOriginalNoText.jpg");
+	box-sizing: border-box;
+	padding: 20px;
+	padding-top: 50px;
+}
+.errors{
+	color: red;
+}
+.btn{
+	border-radius: 0px;
+	border: 3px solid black;
+	color: white;
+	background: black;
+	margin-bottom: 10px;
+}
+.delete{
+	background: red;
+}
+.messages{
+	background: beige;
+	border-left: 3px solid lightgray;
+	margin-left: 20px;
+	margin-bottom: 0px;
+	min-height: 80px;
+}
+.message_content{
+	padding: 15px 10px;
+}
+h4{
+	margin-left: 20px;
+	font-size: 1.2em;
+}
+.comments{
+	background: gainsboro;
+	border-left: 3px solid lightgray;
+	margin-top: 5px;
+	margin-left: 40px;	
+	min-height: 80px;
+}
+.comment_content{
+	padding: 15px 10px;
+}
+.right{
+	float: right;
+	position: relative;
+	top: -33px;
+	right: 20px;
+}
+.gray{
+	color: gray;
+	margin-right: 10px;
+	text-align: right;
+}
