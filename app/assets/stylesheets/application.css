@@ -46,11 +46,12 @@
 	margin-left: 20px;
 }
 #navbar>form{
-	order: 3;
+	order: 2;
 }
 #theWall{
 	height: 80px;
 	width: auto;
+	position: absolute;
 	top: 10px;
 	left: 50vw;
 	-ms-transform: translate(-50%, 0%);
@@ -58,7 +59,6 @@
 	-o-transform: translate(-50%, 0%);
 	-moz-transform: translate(-50%, 0%); 
 	transform: translate(-50%, 0%);
-	order: 2;
 }
 
 
