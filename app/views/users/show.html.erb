@@ -1,10 +1,8 @@
-<div class="container">
-
-<h1 class="title">Welcome to the Wall</h1>
-<form action="/messages" method="POST">
+<h1 class="fw">Welcome to the Wall</h1>
+<form action="/messages" method="POST" id="messageForm">
 	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 	
-	<textarea name="content" id="" cols="100" rows="5"></textarea><br>
+	<textarea name="content" id="messageInput" rows="5"></textarea><br>
 
 	<input type="submit" value="Post" name="Post" class="btn create">
 </form>
@@ -12,28 +10,44 @@
 
 <% if @messages %>
 	<% @messages.each do |message| %>
+		
 		<div class="messages">
-			<h4 class="message_content">"<%= message.content %>"</h4>
-			<p class="gray"><i><%= message.user.first_name %> - <%= message.created_at.strftime("%b %-d, %Y")%></i></p>
+
+			<p class="message_content">"<%= message.content %>"</p>
+
+			<p class="gray">
+				<i>
+					<%= message.user.first_name %> - <%= message.created_at.strftime("%b %-d, %Y")%>
+				</i>
+			</p>
 
 			<% if message.user == current_user %>
-				<form action='/messages/<%= message.id %>' method='post'>
-				<input type='hidden' name='_method' value='delete'>
-				<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-				<input type='submit' value='Delete Message' class="delete btn right">
+				<form action='/messages/<%= message.id %>' method='post' class="rForm">
+					<input type='hidden' name='_method' value='delete'>
+					<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+					<input type='submit' value='X' class="delete btn right">
 				</form>
 			<% end %>
+
 		</div>
+
 		<% if message.comments %>
 			<% message.comments.each do |comment| %>	
 				<div class="comments">
+
 					<p class="comment_content">"<%= comment.content %>"</p>
-					<p class="gray"><i><%= comment.user.first_name %> - <%= comment.created_at.strftime("%b %-d, %Y")%></i></p>
+
+					<p class="gray">
+						<i>
+							<%= comment.user.first_name %> - <%= comment.created_at.strftime("%b %-d, %Y")%>								
+						</i>
+					</p>
+
 					<% if comment.user == current_user %>
-						<form action='/comments/<%= comment.id %>' method='post'>
+						<form action='/comments/<%= comment.id %>' method='post' class="rForm">
 						<input type='hidden' name='_method' value='delete'>
 						<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-						<input type='submit' value='Delete Comment' class="delete btn right">
+						<input type='submit' value='X' class="delete btn right">
 						</form>
 					<% end %>
 				</div>
@@ -41,10 +55,10 @@
 		<% end %>		
 
 
-		<form action="/comments" method="POST">
+		<form action="/comments" method="POST" class="commentForm">
 			<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 			<input type="hidden" value="<%= message.id %>" name="message_id">
-			<textarea name="content" id="" cols="100" rows="3"></textarea><br>
+			<textarea name="content" rows="3" class="commentInput"></textarea><br>
 
 			<input type="submit" value="Post Comment" name="Post Comment" class="btn create">
 		</form>		
@@ -52,5 +66,3 @@
 
 	<% end %>
 <% end %>
-
-</div>

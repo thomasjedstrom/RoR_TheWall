@@ -13,79 +13,215 @@
  *= require_tree .
  *= require_self
  */
+
+ /*GLOBAL*/
  *{
  	font-family: sans-serif;
  }
-
-.navbar{
-	position: fixed;
-	width: 100%;
+ #wrapper{
+	max-width: 1200px;
+	min-height: 100vh;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	background-image: url('https://s-media-cache-ak0.pinimg.com/236x/8b/d1/1b/8bd11b7ad7a580063529e16adbe9e6e9.jpg');
+	align-content: flex-start;
+	box-shadow: 0px 0px 5px black;	
+}
+#navbar{
+	/*position: fixed;*/
+	display: flex;
+	align-items: center;
+	flex: 0 0 100%;
+	height: 100px;
 	padding: 0px;
+	background: #eee;
+	box-shadow: 0px 5px 5px gray;
+	text-align: left;
+	justify-content: space-between;
 }
-.navbarstuff{
-	width: 1000px;
-	margin: auto;
-	margin-top: 0px;
-	background: gray;	
-	height: 2.5em;
+#navbar>h3{
+	order: 1;
+	margin-left: 20px;
 }
-.navbarstuff>h1{
-	margin: 0px;
-	margin-left: 30px;
+#navbar>form{
+	order: 3;
 }
-.container{
-	max-width: 1000px;
-	margin: auto;
-	background-image: url("https://upload.wikimedia.org/wikipedia/en/1/13/PinkFloydWallCoverOriginalNoText.jpg");
-	box-sizing: border-box;
-	padding: 20px;
-	padding-top: 50px;
+#theWall{
+	height: 80px;
+	width: auto;
+	top: 10px;
+	left: 50vw;
+	-ms-transform: translate(-50%, 0%);
+	-webkit-tranform: translate(-50%, 0%); 
+	-o-transform: translate(-50%, 0%);
+	-moz-transform: translate(-50%, 0%); 
+	transform: translate(-50%, 0%);
+	order: 2;
 }
-.errors{
-	color: red;
-}
+
+
+
+/*HELPERS*/
 .btn{
 	border-radius: 0px;
 	border: 3px solid black;
-	color: white;
-	background: black;
-	margin-bottom: 10px;
+	color: black;
+	background: white;
+	box-shadow: 0px 3px 3px gray;
+	margin: 5px 10px;
+	text-decoration: none;
+	font-size: 1em;
+	display: inline-block;
+	padding: 3px 5px;
 }
 .delete{
 	background: red;
+	border-radius: 100%;
 }
-.messages{
-	background: beige;
-	border-left: 3px solid lightgray;
+.blue{
+	background: blue;
+	color: white;
+}
+.fw{
+	min-width: 100%;
+}
+.rForm{
+	position: relative;
+}
+.right{
+	float: right;
+	position: absolute;
+	top: -100px;
+	right: 20px;
+}
+.left{
+	float: left;
+}
+.gray{
+	color: gray;
 	margin-left: 20px;
-	margin-bottom: 0px;
-	min-height: 80px;
+	text-align: left;
+}
+
+
+
+/*ERRORS*/
+.error{
+	margin: auto;
+	margin-top: 15px;
+	max-width: 350px;
+	list-style: none;
+	color: red;
+	background: pink;
+	border: 3px solid red;
+	border-radius: 5px;
+	padding: 4px;
+	line-height: 2.5em;
+}
+ul{
+	margin: 0px;
+	display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+
+
+/*FORMS*/
+.sessionForm{
+	max-width: 500px;
+	margin: auto;
+	margin-top: 30px;
+	border: 3px solid black;
+	box-shadow: 0px 5px 5px black;
+	background: white;
+}
+h1{
+	text-align: center;
+	text-decoration: underline;
+}
+input, textarea{
+	border: 3px solid black;
+}
+label{
+	float: left;
+	margin: 0px 20px;
+	font-size: 1.2em;
+}
+input{
+	border: 3px solid black;
+	width: 250px;	
+	height: 1.8em;
+	margin-left: 5px;
+}
+input[type="submit"]{
+	width: auto;
+}
+textarea:focus, input:focus {
+	border: 2px solid green;
+}
+.row{
+	text-align: right;
+	margin: 10px 20px 0px 0px;
+	max-width: 500px;
+}
+
+
+
+/*Dashboard*/
+#messageForm{
+	flex: 0 0 826px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	margin-bottom: 30px;
+}
+#messageInput{
+	flex: 10 10 826px;
+}
+
+
+
+/*Messages*/
+.messages{
+	flex: 0 0 1000px;
+	background: beige;
+	border-left: 6px solid lightgray;
+	margin-left: 20px;
 }
 .message_content{
 	padding: 15px 10px;
-}
-h4{
 	margin-left: 20px;
 	font-size: 1.2em;
+	font-weight: bold;
 }
+
+/*Comments*/
 .comments{
+	flex: 0 0 900px;
 	background: gainsboro;
-	border-left: 3px solid lightgray;
-	margin-top: 5px;
-	margin-left: 40px;	
-	min-height: 80px;
+	border-left: 6px solid lightgray;
+	border-top: 6px solid lightgray;
+	margin-left: 120px;
 }
 .comment_content{
 	padding: 15px 10px;
 }
-.right{
-	float: right;
-	position: relative;
-	top: -33px;
-	right: 20px;
+
+/*Comment Form*/
+.commentForm{
+	flex: 0 0 900px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	margin: 0px 0px 30px 130px;
 }
-.gray{
-	color: gray;
-	margin-right: 10px;
-	text-align: right;
+.commentInput{
+	flex: 0 0 900px;
 }
