@@ -33,7 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'hirb'
-
+gem 'better_errors'
 gem 'rails_12factor'
 
 group :development, :test do
