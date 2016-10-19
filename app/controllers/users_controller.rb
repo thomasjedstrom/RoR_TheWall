@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :require_login, except: [:create]
+  before_action :require_correct_user, only: [:show, :edit, :update, :destroy]
+
   def index
   end
 
@@ -27,6 +30,15 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @messages = Message.all
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   def logout

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def require_login
-		redirect_to '/sessions/new' if session[:user_id] == nil
+		redirect_to root_path if session[:user_id] == nil
   	end
 
 	def current_user
