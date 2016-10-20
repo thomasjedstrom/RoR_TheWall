@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = params[:id]
   end
 
   def update
